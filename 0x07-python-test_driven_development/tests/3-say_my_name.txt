@@ -1,0 +1,214 @@
+=================================================================
+Testing Function that prints: My name is <first name> <last name>
+=================================================================
+
+Importing file
+==============
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Function
+========
+Function that prints: My name is <first name> <last name>.
+first_name and last_name must be strings, otherwise
+raise a TypeError exception.
+
+Valid first argument
+====================
+
+    #First str, last str
+    >>> say_my_name("Walter", "White")
+    My name is Walter White
+
+    #First str, no last
+    >>> say_my_name("Bob")
+    My name is Bob 
+
+    #First str, last str-int
+    >>> say_my_name("Walter", "1")
+    My name is Walter 1
+
+    #First str, last int-str
+    >>> say_my_name("Walter", 1j2)
+    Traceback (most recent call last):
+    SyntaxError: invalid syntax
+
+    #First str, last int
+    >>> say_my_name("Walter", 1)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    #First str, last None
+    >>> say_my_name("Walter", None)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    #First str, last float
+    >>> say_my_name("Walter", 1.2)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    #First str, last bool
+    >>> say_my_name("Walter", True)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    #First str, last list
+    >>> say_my_name("Walter", [1, 2])
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    #First str, last tuple
+    >>> say_my_name("Walter", (1, 2))
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    #First str, last dictionary
+    >>> say_my_name("Walter", {"a": 1})
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    #First str, variable undefined as last
+    >>> say_my_name("Walter", undefined)
+    Traceback (most recent call last):
+    NameError: name 'undefined' is not defined
+
+Valid second argument
+=====================
+
+    #First int-str, last str
+    >>> say_my_name(1j2, "White")
+    Traceback (most recent call last):
+    SyntaxError: invalid syntax
+
+    #First None, last str
+    >>> say_my_name(None, "White")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #First int, last str
+    >>> say_my_name(1, "White")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #First float, last str
+    >>> say_my_name(1.2, "White")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #First bool, last str
+    >>> say_my_name(True, "White")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #First list, last str
+    >>> say_my_name([1, 2], "White")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #First tuple, last str
+    >>> say_my_name((1, 2), "White")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #First dictionary, last str
+    >>> say_my_name({"a": 1}, "White")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #First None, no last
+    >>> say_my_name(None)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #First int, no last
+    >>> say_my_name(1)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #First float, no last
+    >>> say_my_name(1.2)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #First bool, no last
+    >>> say_my_name(True)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #First list, no last
+    >>> say_my_name([1, 2])
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #First tuple, no last
+    >>> say_my_name((1, 2))
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #First dictionary, no last
+    >>> say_my_name({"a": 1})
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #Variable undefined as first, last str
+    >>> say_my_name(undefined, "White")
+    Traceback (most recent call last):
+    NameError: name 'undefined' is not defined
+
+Non-valid arguments
+====================
+
+    #No arguments
+    >>> say_my_name()
+    Traceback (most recent call last):
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+    #No first argument
+    >>> say_my_name(, "White")
+    Traceback (most recent call last):
+    SyntaxError: invalid syntax
+
+    #First None, last None
+    >>> say_my_name(None, None)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #First int-str, last int-str
+    >>> say_my_name(1j2, 1j2)
+    Traceback (most recent call last):
+    SyntaxError: invalid syntax
+
+    #First int, last int
+    >>> say_my_name(1, 1)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #First float, last float
+    >>> say_my_name(1.2, 1.2)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #First bool, last bool
+    >>> say_my_name(True, False)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #First list, last list
+    >>> say_my_name([1, 2], [1, 2])
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #First tuple, last tuple
+    >>> say_my_name((1, 2), (1, 2))
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #First dictionary, last dictionary
+    >>> say_my_name({"a": 1}, {"a": 1})
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    #Variable undefined as first, variable undefined as last
+    >>> say_my_name(undefined, undefined)
+    Traceback (most recent call last):
+    NameError: name 'undefined' is not defined
