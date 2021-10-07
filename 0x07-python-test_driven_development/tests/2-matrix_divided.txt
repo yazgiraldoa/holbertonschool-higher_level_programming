@@ -187,6 +187,12 @@ Non-valid matrix
     Traceback (most recent call last):
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
+    #Matrix list and a str, positive div
+    >>> matrix = [[3, "9"], [12, 3]]
+    >>> matrix_divided(matrix, 2)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
     #Matrix tuple, positive div
     >>> matrix = (1, 2)
     >>> matrix_divided(matrix, 2)

@@ -33,9 +33,11 @@ def matrix_divided(matrix, div):
 
         for element in row:
             if not isinstance(element, (float, int)):
-                raise TypeError("div must be a number")
+                raise TypeError("matrix must be a matrix (list of lists)"
+                                " of integers/floats")
             if isinstance(element, bool):
-                raise TypeError("div must be a number")
+                raise TypeError("matrix must be a matrix (list of lists)"
+                                " of integers/floats")
 
     new_matrix = [[round((i / div), 2) for i in row] for row in matrix]
     return new_matrix
