@@ -38,7 +38,6 @@ Valid argument
 
     #Size positive int
     >>> print_square(0)
-    <BLANKLINE>
 
 Non-valid argument
 ====================
