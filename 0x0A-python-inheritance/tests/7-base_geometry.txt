@@ -1,0 +1,113 @@
+=======================================
+Testing class method that validates an integer
+=======================================
+
+Importing file
+==============
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+
+Class method
+============
+Public instance method that validates a value.
+We can assume first arg will be a string
+
+Numbers
+=======
+
+    #One positive int
+    >>> bg.integer_validator("name", 12)
+
+    #One negative int
+    >>> bg.integer_validator("name", -12)
+    Traceback (most recent call last):
+    ValueError: name must be greater than 0
+
+    #Zero
+    >>> bg.integer_validator("name", 0)
+    Traceback (most recent call last):
+    ValueError: name must be greater than 0
+
+
+    #One positive float
+    >>> bg.integer_validator("name", 1.2)
+    Traceback (most recent call last):
+    TypeError: name must be an integer
+
+    #One negative float
+    >>> bg.integer_validator("name", -1.2)
+    Traceback (most recent call last):
+    TypeError: name must be an integer
+
+Non-Numbers
+===========
+
+    #No argument
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+    #One float inf
+    >>> bg.integer_validator("name", float('inf'))
+    Traceback (most recent call last):
+    TypeError: name must be an integer
+
+    #One float NaN
+    >>> bg.integer_validator("name", float('nan'))
+    Traceback (most recent call last):
+    TypeError: name must be an integer
+
+    #One None
+    >>> bg.integer_validator("name", None)
+    Traceback (most recent call last):
+    TypeError: name must be an integer
+
+    #Only second argument None
+    >>> bg.integer_validator(, None)
+    Traceback (most recent call last):
+    SyntaxError: invalid syntax
+
+    #Non-int
+    >>> bg.integer_validator("name" ,123a4)
+    Traceback (most recent call last):
+    SyntaxError: invalid syntax
+
+    #Non-float
+    >>> bg.integer_validator("name", 123.a4)
+    Traceback (most recent call last):
+    SyntaxError: invalid syntax
+
+    #String
+    >>> bg.integer_validator("name", "Holberton")
+    Traceback (most recent call last):
+    TypeError: name must be an integer
+
+    #Tuple
+    >>> bg.integer_validator("name", (1, ))
+    Traceback (most recent call last):
+    TypeError: name must be an integer
+
+    #List
+    >>> bg.integer_validator("name", [1, 2])
+    Traceback (most recent call last):
+    TypeError: name must be an integer
+
+    #Bool
+    >>> bg.integer_validator("name", False)
+    Traceback (most recent call last):
+    TypeError: name must be an integer
+
+    #Empty dictionary
+    >>> bg.integer_validator("name", {})
+    Traceback (most recent call last):
+    TypeError: name must be an integer
+
+    #Dictionary
+    >>> bg.integer_validator("name", {"a": 1})
+    Traceback (most recent call last):
+    TypeError: name must be an integer
+
+    #Variable undefined
+    >>> bg.integer_validator("name", undefined)
+    Traceback (most recent call last):
+    NameError: name 'undefined' is not defined
