@@ -26,7 +26,7 @@ class Base:
         """Static method that returns the JSON string
         representation of a list of dictionaries"""
         if not list_dictionaries or list_dictionaries is None:
-            return {}
+            return "[]"
         return json.dumps(list_dictionaries)
 
     @staticmethod
@@ -48,7 +48,7 @@ class Base:
                 list_dicts.append(dict_to_save)
             list_dicts = Base.to_json_string(list_dicts)
         else:
-            list_dicts = str(list())
+            list_dicts = str(list_dicts)
 
         with open(f"{cls.__name__}.json", mode='w', encoding='utf-8') as f:
             f.write(list_dicts)
@@ -57,8 +57,13 @@ class Base:
     def create(cls, **dictionary):
         """Class method that returns an instance
         with all attributes already set"""
-        r1 = cls.__mro__[0](1, 2, 1, 1)
-        r1.update(**dictionary)
+        r1 = cls.__name__
+        if cls.__name__ == "Rectangle":
+            r1 = cls.__mro__[0](1, 2)
+            r1.update(**dictionary)
+        elif cls.__name__ == "Square":
+            r1 = cls.__mro__[0](2)
+            r1.update(**dictionary)
         return r1
 
     @classmethod
