@@ -7,7 +7,12 @@ from models.rectangle import Rectangle
 
 class Square(Rectangle):
     """
-    Class Square that inherits from Rectangle
+    Class Square that inherits from Rectangle.
+    Attributes:
+        size(int): width of a square
+        x(int) = position of the square in x
+        y(int) = position of the square in y
+        id(int): object id given by Base class
     """
     def __init__(self, size, x=0, y=0, id=None):
         self.size = size
