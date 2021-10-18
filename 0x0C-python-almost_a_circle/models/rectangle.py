@@ -8,6 +8,12 @@ from models.base import Base
 class Rectangle(Base):
     """
     Class Rectangle that inherits from Base
+    Attributes:
+        width(int): width of a rectangle
+        height(int): height of a rectangle
+        x(int) = position of the rectangle in x
+        y(int) = position of the rectangle in y
+        id(int): object id given by Base class
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -124,4 +130,3 @@ class Rectangle(Base):
     def to_dictionary(self):
         return {"x": self.__x, "y": self.__y, "id": self.id,
                 "height": self.__height, "width": self.__width}
-
