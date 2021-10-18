@@ -18,20 +18,24 @@ class Square(Rectangle):
         self.size = size
         super().__init__(size, size, x, y, id)
 
-    def __str__(self):
-        return f"[Square] ({self.id}) {self.x}/{self.y} " \
-               f"- {self.width}"
-
     @property
     def size(self):
+        """Getter that retrieves size"""
         return self.width
 
     @size.setter
     def size(self, value):
+        """Setter that sets the value of size"""
         self.width = value
         self.height = value
 
+    def __str__(self):
+        """Method that returns the square string representation"""
+        return f"[Square] ({self.id}) {self.x}/{self.y} " \
+               f"- {self.width}"
+
     def update(self, *args, **kwargs):
+        """Method that updates the values of square"""
         in_args = 0
         for i in range(len(args)):
             in_args = 1
@@ -57,5 +61,6 @@ class Square(Rectangle):
                     self.y = value
 
     def to_dictionary(self):
+        """Method that returns the rectangle dictionary representation"""
         return {"x": self.x, "y": self.y,
                 "id": self.id, "size": self.width}
