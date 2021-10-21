@@ -3,6 +3,8 @@
 Class Base
 """
 import json
+import turtle
+from time import sleep
 
 
 class Base:
@@ -80,3 +82,37 @@ class Base:
                 return obj_list
         except FileNotFoundError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        for shape in list_rectangles:
+            t = turtle.Turtle()
+            t.pencolor("blue")
+            t.up()
+            t.goto(shape.x, shape.y)
+            t.down()
+            t.forward(shape.width)
+            t.left(90)
+            t.forward(shape.height)
+            t.left(90)
+            t.forward(shape.width)
+            t.left(90)
+            t.forward(shape.height)
+            sleep(0.5)
+            t.clear()
+        for shape in list_squares:
+            t = turtle.Turtle()
+            t.pencolor("red")
+            t.up()
+            t.goto(shape.x, shape.y)
+            t.down()
+            t.forward(shape.width)
+            t.left(90)
+            t.forward(shape.height)
+            t.left(90)
+            t.forward(shape.width)
+            t.left(90)
+            t.forward(shape.height)
+            sleep(0.5)
+            t.clear()
+        turtle.done()
