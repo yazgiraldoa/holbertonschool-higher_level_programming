@@ -7,27 +7,20 @@ import MySQLdb
 from sys import argv
 
 
-def my_filter_states():
-    """
-    Function that lists all states matching an argument.
-    """
+if __name__ == '__main__':
     db = MySQLdb.connect(host="localhost", user=argv[1],
                          password=argv[2], db=argv[3], port=3306)
 
     cur = db.cursor()
 
-    cur.execute(f"""
+    cur.execute("""
                 SELECT *
                 FROM states
-                WHERE name LIKE '{argv[4]}'
+                WHERE name LIKE BINARY '{}'
                 ORDER BY states.id
-                """)
+                """.format(argv[4]))
 
     for row in cur.fetchall():
         print(row)
 
     db.close()
-
-
-if __name__ == '__main__':
-    my_filter_states()
