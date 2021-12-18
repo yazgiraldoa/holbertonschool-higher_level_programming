@@ -7,12 +7,7 @@ lists all cities of that state, using database hbtn_0e_4_usa.
 import MySQLdb
 from sys import argv
 
-
-def filter_cities():
-    """
-    Funtion that finds all the cities in a state passed by argument.
-    """
-
+if __name__ == '__main__':
     """Connecting to the database"""
     db = MySQLdb.connect(host="localhost", user=argv[1],
                          password=argv[2], db=argv[3], port=3306)
@@ -33,6 +28,3 @@ def filter_cities():
     print(", ".join(arr))
 
     db.close()
-
-if __name__ == '__main__':
-    filter_cities()
