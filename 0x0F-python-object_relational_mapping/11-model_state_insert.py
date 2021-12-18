@@ -18,6 +18,7 @@ if __name__ == "__main__":
 
     """create a configured "Session" class"""
     Session = sessionmaker(bind=engine)
+    Session.configure(bind=engine)
 
     """create a Session"""
     session = Session()
