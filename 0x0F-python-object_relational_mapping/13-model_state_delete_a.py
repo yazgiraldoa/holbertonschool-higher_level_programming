@@ -24,6 +24,6 @@ if __name__ == "__main__":
 
     """Getting the state and deleting it"""
     for state in session.query(State)\
-            .filter(State.name.like("%a%")).order_by(State.id):
+            .filter(State.name.ilike('%a%')).order_by(State.id):
         session.delete(state)
-        session.commit()
+    session.commit()
