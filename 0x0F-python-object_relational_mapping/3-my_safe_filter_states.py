@@ -7,13 +7,7 @@ but safe from SQL injections.
 import MySQLdb
 from sys import argv
 
-
-def my_safe_filter_states():
-    """
-    Function that lists all states matching an argument,
-    safe from SQL injections.
-    """
-
+if __name__ == '__main__':
     db = MySQLdb.connect(host="localhost", user=argv[1],
                          password=argv[2], db=argv[3], port=3306)
 
@@ -30,6 +24,3 @@ def my_safe_filter_states():
         print(row)
 
     db.close()
-
-if __name__ == '__main__':
-    my_safe_filter_states()
