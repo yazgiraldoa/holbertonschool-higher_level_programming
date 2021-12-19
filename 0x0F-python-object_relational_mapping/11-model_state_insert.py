@@ -23,10 +23,12 @@ if __name__ == "__main__":
     session = Session()
 
     """Add new state"""
-    new_state = State(name="Lousiana")
+    new_state = State(name="Louisiana")
 
     """Adding new object"""
     session.add(new_state)
     session.commit()
 
-    print(new_state.id)
+    state = session.query(State).filter(State.name.ilike("Louisiana")).first()
+    if state:
+        print(state.id)
